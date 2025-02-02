@@ -12,7 +12,7 @@ import SwiftData
 struct Round_OneApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            LoginView()
         }
     }
 }
