@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		96D5CE662D5011FD00C98C17 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96D5CE652D5011F900C98C17 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		96B8E14C2D4FFA8F004D19AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		96B8E1392D4FFA8E004D19AC /* Round One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Round One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B8E14B2D4FFA8F004D19AC /* Round OneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Round OneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B8E1552D4FFA8F004D19AC /* Round OneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Round OneUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D5CE652D5011F900C98C17 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		96B8E1302D4FFA8E004D19AC = {
 			isa = PBXGroup;
 			children = (
+				96D5CE652D5011F900C98C17 /* .gitignore */,
 				96B8E13B2D4FFA8E004D19AC /* Round One */,
 				96B8E14E2D4FFA8F004D19AC /* Round OneTests */,
 				96B8E1582D4FFA8F004D19AC /* Round OneUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D5CE662D5011FD00C98C17 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
