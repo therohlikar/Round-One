@@ -34,6 +34,26 @@
 		96D5CE652D5011F900C98C17 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		961117822D50156700D3B5DD /* Exceptions for "Temp" folder in "Round One" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				notes.txt,
+			);
+			target = 96B8E1382D4FFA8E004D19AC /* Round One */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		961117832D50156700D3B5DD /* Exceptions for "Temp" folder in "Compile Sources" phase from "Round One" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 96B8E1352D4FFA8E004D19AC /* Sources */;
+			membershipExceptions = (
+				notes.txt,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		96B8E13B2D4FFA8E004D19AC /* Round One */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -52,6 +72,10 @@
 		};
 		96D5CE682D50149E00C98C17 /* Temp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				961117822D50156700D3B5DD /* Exceptions for "Temp" folder in "Round One" target */,
+				961117832D50156700D3B5DD /* Exceptions for "Temp" folder in "Compile Sources" phase from "Round One" target */,
+			);
 			path = Temp;
 			sourceTree = "<group>";
 		};
