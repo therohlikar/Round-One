@@ -37,12 +37,7 @@ struct MainView: View {
             .padding(40)
         }
         .overlay(alignment: .topTrailing) {
-            HStack{
-                Button("LOGIN BUTTON"){
-                    
-                }
-            }
-            .padding()
+            UserButtonView()
         }
     }
 }
