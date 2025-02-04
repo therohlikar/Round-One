@@ -8,15 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
-    @Environment(\.colorScheme) var colorScheme
-    var bgColor: Color {
-        colorScheme == .dark ? .black : .white
-    }
-    
     var body: some View {
         ZStack {
-            bgColor
-                .edgesIgnoringSafeArea(.all)
+            Color(.systemBackground)
             
             VStack(alignment: .center) {
                 Button {
@@ -37,7 +31,7 @@ struct MainView: View {
             .padding(40)
         }
         .overlay(alignment: .topTrailing) {
-            UserButtonView()
+            UserButtonView(currentUser: CurrentUser())
         }
     }
 }
