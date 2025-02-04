@@ -9,12 +9,21 @@ import SwiftUI
 
 
 struct UserButtonView: View {
+    @State var currentUser: CurrentUser
+    
     var body: some View {
-        HStack{
-            Button("LOGIN BUTTON"){
-                
-            }
+        VStack{
+            Image(systemName: "person.crop.circle")
+                .font(.system(size: 38))
+                .foregroundStyle(.secondary)
+            
+            Text(currentUser.getUsername())
+                .font(.caption)
         }
         .padding()
     }
+}
+
+#Preview {
+    UserButtonView(currentUser: CurrentUser())
 }
