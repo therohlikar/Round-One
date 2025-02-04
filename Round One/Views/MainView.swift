@@ -7,27 +7,43 @@
 
 import SwiftUI
 
-struct MainView: View {    
+struct MainView: View {
+    @Environment(\.colorScheme) var colorScheme
+    var bgColor: Color {
+        colorScheme == .dark ? .black : .white
+    }
+    
     var body: some View {
-        VStack(alignment: .center) {
-            Spacer()
-            TextField("Username", text: .constant(""))
-                .padding(.vertical)
+        ZStack {
+            bgColor
+                .edgesIgnoringSafeArea(.all)
             
-            SecureField("Password", text: .constant(""))
-                .padding(.vertical)
-            
-            Button(action: {
-                //LOGIN
-            }) {
-                Text("Login")
+            VStack(alignment: .center) {
+                Button {
+                    //
+                } label: {
+                    Text("PLAY")
+                }
+                .font(.system(size: 90, weight: .bold, design: .rounded))
+                HStack(alignment: .center){
+                    Button {
+                        //
+                    } label: {
+                        Text("OPTIONS")
+                    }
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                }
             }
-            .padding(.vertical)
-            
-            
-            Spacer()
+            .padding(40)
         }
-        .padding(40)
+        .overlay(alignment: .topTrailing) {
+            HStack{
+                Button("LOGIN BUTTON"){
+                    
+                }
+            }
+            .padding()
+        }
     }
 }
 
