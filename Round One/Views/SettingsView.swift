@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
     var body: some View {
         ZStack {
@@ -29,9 +30,9 @@ struct SettingsView: View {
                     Text("Theme")
                     Spacer()
                     Button {
-                        
+                        storedColorScheme = storedColorScheme == "dark" ? "light" : "dark"
                     } label: {
-                        Text(colorScheme == .dark ? "Dark" : "Light")
+                        Text(storedColorScheme == "dark" ? "Dark" : "Light")
                     }
 
                 }
@@ -41,11 +42,11 @@ struct SettingsView: View {
             }
             .padding(.horizontal, 30)
         }
-        
+        .preferredColorScheme(storedColorScheme == "dark" ? .dark : .light)
     }
 }
 
 #Preview {
     SettingsView()
-        .colorScheme(.dark)
+        .environmentObject(SettingsViewModel())
 }

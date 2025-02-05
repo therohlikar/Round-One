@@ -10,9 +10,12 @@ import SwiftData
 
 @main
 struct Round_OneApp: App {
+    @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .preferredColorScheme(storedColorScheme == "dark" ? .dark : .light)
         }
     }
 }
