@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlayerModel: Hashable {
+struct PlayerModel: Hashable, Encodable, Decodable {
     var name: String
     
     init(name: String) {
