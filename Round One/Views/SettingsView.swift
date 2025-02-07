@@ -11,20 +11,17 @@ struct SettingsView: View {
     @EnvironmentObject var settingsViewModel: SettingsViewModel
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
+    @State private var selectedOption: String = "Always"
+    let options: [String] = ["Always", "Ask before saving", "Never"]
+    
     var body: some View {
         ZStack {
             Color(.systemBackground)
             
             VStack {
-                Text("SETTINGS MENU")
+                Text("SETTINGS")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
-                
-                HStack {
-                    Text("Language")
-                    Spacer()
-                    Text("English")
-                }
-                .padding()
+                    .padding()
                 
                 HStack {
                     Text("Theme")
@@ -34,13 +31,28 @@ struct SettingsView: View {
                     } label: {
                         Text(storedColorScheme == "dark" ? "Dark" : "Light")
                     }
-
+                }
+                .padding()
+                
+                HStack {
+                    Text("Saving methods")
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        Picker("Select a paint color", selection: $selectedOption) {
+                            ForEach(options, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                    }
                 }
                 .padding()
                 
                 Spacer()
             }
-            .padding(.horizontal, 30)
+            .padding(.horizontal)
         }
         .preferredColorScheme(storedColorScheme == "dark" ? .dark : .light)
     }
