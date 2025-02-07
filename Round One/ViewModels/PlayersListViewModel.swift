@@ -19,6 +19,11 @@ class PlayersListViewModel: ObservableObject {
         savePlayers()
     }
     
+    func removePlayer(_ offsets: IndexSet){
+        self.players.remove(atOffsets: offsets)
+        savePlayers()
+    }
+    
     func savePlayers() {
         if let encoded = try? JSONEncoder().encode(players) {
             UserDefaults.standard.set(encoded, forKey: "playerslist")
