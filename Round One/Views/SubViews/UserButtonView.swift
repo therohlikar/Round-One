@@ -14,7 +14,6 @@ struct UserButtonView: View {
     var body: some View {
         VStack{
             Image(systemName: "person.crop.circle")
-                .font(.system(size: 38))
                 .foregroundStyle(.secondary)
             
             Text(currentUser.getUsername())
