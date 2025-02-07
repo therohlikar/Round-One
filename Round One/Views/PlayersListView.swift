@@ -27,10 +27,13 @@ struct PlayersListView: View {
                         .font(.system(size: 24, weight: .medium, design: .rounded))
                         .padding()
                 }else{
-                    ForEach(plvm.players, id: \.self) { player in
-                        Text(player.name)
-                            .font(.system(size: 18, weight: .medium, design: .rounded))
-                            .padding(8)
+                    List{
+                        ForEach(plvm.players, id: \.self) { player in
+                            Text(player.name)
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
+                                .padding(8)
+                        }
+                        .onDelete(perform: deletePlayer)
                     }
                 }
                 
@@ -49,6 +52,10 @@ struct PlayersListView: View {
 
             }
         }
+    }
+    
+    func deletePlayer(at offsets: IndexSet) {
+        plvm.removePlayer(offsets)
     }
 }
 
