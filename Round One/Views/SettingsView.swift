@@ -19,9 +19,10 @@ struct SettingsView: View {
             Color(.systemBackground)
             
             VStack {
-                Text("SETTINGS")
+                Text("SETTINGS.")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
                     .padding()
+                    .foregroundStyle(.blue)
                 
                 HStack {
                     Text("Theme")
@@ -40,7 +41,7 @@ struct SettingsView: View {
                     Button {
                         //
                     } label: {
-                        Picker("Select a paint color", selection: $selectedOption) {
+                        Picker("", selection: $selectedOption) {
                             ForEach(options, id: \.self) {
                                 Text($0)
                             }
@@ -54,7 +55,6 @@ struct SettingsView: View {
             }
             .padding(.horizontal)
         }
-        .preferredColorScheme(storedColorScheme == "dark" ? .dark : .light)
     }
 }
 
