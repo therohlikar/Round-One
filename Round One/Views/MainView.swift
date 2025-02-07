@@ -21,15 +21,25 @@ struct MainView: View {
                 } label: {
                     Text("PLAY")
                 }
-                .font(.system(size: 90, weight: .bold, design: .rounded))
+                .font(.system(size: 100, weight: .bold, design: .rounded))
                 .foregroundStyle(.blue)
                 
-                Button {
-                    settingsIsPresented.toggle()
-                } label: {
-                    Text("SETTINGS")
+                HStack {
+                    Button {
+                        settingsIsPresented.toggle()
+                    } label: {
+                        Text("PLAYERS")
+                    }
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    
+                    Button {
+                        settingsIsPresented.toggle()
+                    } label: {
+                        Text("SETTINGS")
+                    }
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
                 }
-                .font(.system(size: 24, weight: .bold, design: .rounded))
+                
             }
             .padding(40)
         }
