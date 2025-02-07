@@ -8,46 +8,56 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var settingsIsPresented: Bool = false
+    
+    @State private var path = NavigationPath()
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
     var body: some View {
-        ZStack {
-            Color(.systemBackground)
-            
-            VStack(alignment: .center) {
-                Button {
-                    //
-                } label: {
-                    Text("PLAY")
-                }
-                .font(.system(size: 100, weight: .bold, design: .rounded))
-                .foregroundStyle(.blue)
+        NavigationStack(path: $path) {
+            ZStack {
+                Color(.systemBackground)
                 
-                HStack {
+                VStack(alignment: .center) {
                     Button {
-                        settingsIsPresented.toggle()
+                        //
                     } label: {
-                        Text("PLAYERS")
+                        Text("PLAY.")
                     }
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .font(.system(size: 100, weight: .bold, design: .rounded))
+                    .foregroundStyle(.blue)
                     
-                    Button {
-                        settingsIsPresented.toggle()
-                    } label: {
-                        Text("SETTINGS")
+                    HStack {
+                        Button {
+                            path.append("playerslist")
+                        } label: {
+                            Text("PLAYERS")
+                        }
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        
+                        Text("-")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                        
+                        Button {
+                            path.append("settings")
+                        } label: {
+                            Text("SETTINGS")
+                        }
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
                     }
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    
                 }
-                
+                .padding(40)
             }
-            .padding(40)
-        }
-        .overlay(alignment: .topTrailing) {
-            UserButtonView(currentUser: CurrentUser())
-        }
-        .sheet(isPresented: $settingsIsPresented) {
-            SettingsView()
+            .overlay(alignment: .topTrailing) {
+                UserButtonView(currentUser: CurrentUser())
+            }
+            .navigationDestination(for: String.self) { dest in
+                if dest == "playerslist" {
+                    PlayersListView()
+                } else if dest == "settings" {
+                    SettingsView()
+                }
+            }
         }
     }
 }
