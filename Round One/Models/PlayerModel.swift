@@ -7,10 +7,15 @@
 
 import Foundation
 
-struct PlayerModel: Hashable, Encodable, Decodable {
+struct PlayerModel: Identifiable, Encodable, Decodable {
+    var id: UUID = UUID()
     var name: String
     
-    init(name: String) {
+    init(name: String = "User") {
         self.name = name
+    }
+    
+    func getId() -> String {
+        return "\(self.id)"
     }
 }
