@@ -9,6 +9,7 @@ import Foundation
 
 class PlayersListViewModel: ObservableObject {
     @Published var players: [PlayerModel] = []
+    @Published var selectedPlayer: PlayerModel?
     
     init(players: [PlayerModel] = []){
         self.players = loadPlayers()
@@ -24,8 +25,8 @@ class PlayersListViewModel: ObservableObject {
         return "done"
     }
     
-    func removePlayer(_ offsets: IndexSet){
-        self.players.remove(atOffsets: offsets)
+    func removePlayer(_ player: PlayerModel){
+        self.players.removeAll(where: { $0.id == player.id })
         savePlayers()
     }
     
