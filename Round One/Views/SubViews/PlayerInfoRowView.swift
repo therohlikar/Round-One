@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct PlayerInfoRowView: View {
+    @State var title: String
+    @State var value: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .center){
+            Text("\(title)".uppercased())
+                .font(.headline)
+                .frame(minWidth: 200)
+                .foregroundStyle(.blue)
+            
+            Text(value)
+                .font(.title)
+                .fontWeight(.black)
+        }
+        .padding(.vertical)
     }
 }
 
 #Preview {
-    PlayerInfoRowView()
+    PlayerInfoRowView(title: "asdf", value: "asdf")
 }

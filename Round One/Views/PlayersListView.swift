@@ -20,7 +20,7 @@ struct PlayersListView: View {
             Color(.systemBackground)
             
             VStack {
-                Text("PLAYERSLIST.")
+                Text("PLAYERLIST.")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
                     .padding()
                     .foregroundStyle(.blue)
@@ -30,19 +30,7 @@ struct PlayersListView: View {
                         .font(.system(size: 24, weight: .medium, design: .rounded))
                         .padding()
                 }else{
-                    List{
-                        ForEach(plvm.players) { player in
-                            VStack(alignment: .leading) {
-                                Text(player.name)
-                                    .font(.system(size: 18, weight: .medium, design: .rounded))
-                                Text(player.getId())
-                                    .font(.caption)
-                            }
-                            .padding(8)
-                            
-                        }
-                        .onDelete(perform: deletePlayer)
-                    }
+                    PlayerListOnlyView(plvm: plvm)
                 }
                 
                 Spacer()
@@ -70,10 +58,6 @@ struct PlayersListView: View {
                 }
             }
         }
-    }
-    
-    func deletePlayer(at offsets: IndexSet) {
-        plvm.removePlayer(offsets)
     }
 }
 
