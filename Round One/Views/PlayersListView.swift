@@ -42,15 +42,15 @@ struct PlayersListView: View {
             .padding(.horizontal)
         }
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    plvm.addPlayer("Another user")
-                } label: {
-                    Text("+")
-                        .font(.title)
-                }
-
-            }
+//            ToolbarItem(placement: .topBarTrailing) {
+//                Button {
+//                    plvm.addPlayer("Another user")
+//                } label: {
+//                    Text("+")
+//                        .font(.title)
+//                }
+//
+//            }
         }
     }
     
