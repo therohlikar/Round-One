@@ -18,7 +18,7 @@ struct MainView: View {
                 Color(.systemBackground)
                 VStack(alignment: .center) {
                     Button {
-                        toasts.showToast(ToastNotificationModel(title: "Whatsup", description: "Never", flag: .important))
+                        path.append("combatprepare")
                     } label: {
                         Text("PLAY.")
                     }
@@ -55,6 +55,12 @@ struct MainView: View {
                     PlayersListView()
                 } else if dest == "settings" {
                     SettingsView()
+                } else if dest == "combatprepare" {
+                    CombatDeskView(playerData: [
+                        CombatPlayerModel(player: PlayerModel(name: "Player 1")),
+                        CombatPlayerModel(player: PlayerModel(name: "Player 2")),
+                        CombatPlayerModel(player: PlayerModel(name: "Player 3"))
+                    ])
                 }
             }
         }
