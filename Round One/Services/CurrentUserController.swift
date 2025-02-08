@@ -5,7 +5,7 @@
 //  Created by Radek Jeník on 2/4/25.
 //
 
-class CurrentUser {
+class CurrentUserController {
     //will be updated to DB Model of User
     private var username: String
     

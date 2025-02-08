@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct UserButtonView: View {
-    @State var currentUser: CurrentUser
+    @State var currentUser: CurrentUserController
     
     var body: some View {
         VStack{
@@ -24,5 +24,5 @@ struct UserButtonView: View {
 }
 
 #Preview {
-    UserButtonView(currentUser: CurrentUser())
+    UserButtonView(currentUser: CurrentUserController())
 }
