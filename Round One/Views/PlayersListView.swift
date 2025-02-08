@@ -9,8 +9,9 @@ import SwiftUI
 
 struct PlayersListView: View {
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
-    
     @ObservedObject private var plvm: PlayersListViewModel = .init()
+    
+    @State private var newPlayerUsernameInputShow: Bool = false
     
     var body: some View {
         ZStack {
@@ -42,15 +43,15 @@ struct PlayersListView: View {
             .padding(.horizontal)
         }
         .toolbar {
-//            ToolbarItem(placement: .topBarTrailing) {
-//                Button {
-//                    plvm.addPlayer("Another user")
-//                } label: {
-//                    Text("+")
-//                        .font(.title)
-//                }
-//
-//            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    plvm.addPlayer("Another user")
+                } label: {
+                    Text("+")
+                        .font(.title)
+                }
+
+            }
         }
     }
     
