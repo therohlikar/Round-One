@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlayerModel: Identifiable, Encodable, Decodable {
+struct PlayerModel: Identifiable, Hashable, Encodable, Decodable {
     var id: UUID = UUID()
     var name: String
     

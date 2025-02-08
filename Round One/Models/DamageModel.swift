@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DamageModel: Decodable, Encodable{
+struct DamageModel: Hashable, Decodable, Encodable{
     var standardDamage: Int
     var commanderDamage: Int
     
