@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayersListView: View {
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     @ObservedObject private var plvm: PlayersListViewModel = .init()
+    @EnvironmentObject var toasts: ToastNotificationViewModel
     
     @State private var newPlayerUsernameInputShow: Bool = false
     @State private var newPlayerUsername: String = ""
@@ -56,7 +57,7 @@ struct PlayersListView: View {
                     Button {
                         let error = plvm.addPlayer(newPlayerUsername)
                         if error != "done"{
-                            //notification error
+                            toasts.showToast( ToastNotificationModel(title: "Same username", description: "This username is already taken", flag: .important))
                         }
                     } label: {
                         Text("Add new player")
