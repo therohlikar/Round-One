@@ -9,7 +9,17 @@ import SwiftUI
 
 struct CombatPrepareView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.systemBackground)
+            VStack {
+                Text("COMBATPREPARE.")
+                    .font(.system(size: 36, weight: .bold, design: .rounded))
+                    .padding()
+                    .foregroundStyle(.blue)
+                
+                Spacer()
+            }
+        }
     }
 }
 
