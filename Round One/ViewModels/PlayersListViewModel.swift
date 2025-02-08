@@ -14,9 +14,14 @@ class PlayersListViewModel: ObservableObject {
         self.players = loadPlayers()
     }
     
-    func addPlayer(_ name: String) {
+    func addPlayer(_ name: String) -> String{
+        if players.contains(where: { $0.name == name }){
+            return "Player with name \(name) already exists."
+        }
+        
         players.append(PlayerModel(name: name))
         savePlayers()
+        return "done"
     }
     
     func removePlayer(_ offsets: IndexSet){
