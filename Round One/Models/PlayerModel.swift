@@ -8,7 +8,7 @@
 import Foundation
 
 struct PlayerModel: Identifiable, Hashable, Encodable, Decodable {
-    var id: UUID = UUID()
+    var id: String = UUID().uuidString
     var name: String
     var victories: Int = 0
     var losses: Int = 0

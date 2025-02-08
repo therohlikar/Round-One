@@ -15,7 +15,7 @@ struct ToastNotificationModel: Identifiable {
         case low
     }
     
-    var id: UUID = UUID()
+    var id: String = UUID().uuidString
     var title: String
     var description: String
     var flag: FlagType

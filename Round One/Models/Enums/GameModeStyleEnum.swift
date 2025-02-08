@@ -7,7 +7,9 @@
 
 import Foundation
 
-enum GameModeStyleEnum: Encodable, Decodable{
+enum GameModeStyleEnum: String, Encodable, Decodable, CaseIterable, Identifiable{
+    var id : String { UUID().uuidString }
+    
     case standard
     case commander
     case custom

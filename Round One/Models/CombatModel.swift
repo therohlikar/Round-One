@@ -8,15 +8,25 @@
 import Foundation
 
 struct CombatModel: Encodable, Decodable {
-    var id: UUID = UUID()
+    var id: String = UUID().uuidString
     var players: [CombatPlayerModel] = []
     var winner: CombatPlayerModel?
-    var gamestyle: GameModeStyleEnum = .standard
+    var gameStyle: GameModeStyleEnum = .standard
+    var gameOptions: GameOptionsModel = GameOptionsModel()
     
-    init(id: UUID, players: [CombatPlayerModel], gamestyle: GameModeStyleEnum = .standard, winner: CombatPlayerModel? = nil) {
+    init(id: String = UUID().uuidString, players: [CombatPlayerModel] = [], gameStyle: GameModeStyleEnum = .standard, gameOptions: GameOptionsModel = GameOptionsModel(), winner: CombatPlayerModel? = nil) {
         self.id = id
         self.players = players
-        self.gamestyle = gamestyle
+        self.gameStyle = gameStyle
+        self.gameOptions = gameOptions
         self.winner = winner
+    }
+    
+    mutating func updateGameOptionsBasedOnStyle() {
+        if self.gameStyle == .standard {
+            self.gameOptions = GameOptionsModel(maxPlayers: 2, baseHealth: 20, damageThreshold: 0, commanderDamageThreshold: 0)
+        } else if self.gameStyle == .commander {
+            self.gameOptions = GameOptionsModel(maxPlayers: 8, baseHealth: 40, damageThreshold: 0, commanderDamageThreshold: 21)
+        }
     }
 }
