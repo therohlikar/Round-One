@@ -12,6 +12,7 @@ struct PlayersListView: View {
     @ObservedObject private var plvm: PlayersListViewModel = .init()
     
     @State private var newPlayerUsernameInputShow: Bool = false
+    @State private var newPlayerUsername: String = ""
     
     var body: some View {
         ZStack {
@@ -45,12 +46,22 @@ struct PlayersListView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    plvm.addPlayer("Another user")
+                    newPlayerUsernameInputShow.toggle()
                 } label: {
                     Text("+")
                         .font(.title)
                 }
-
+                .alert("Enter player's name:", isPresented: $newPlayerUsernameInputShow) {
+                    TextField("Username", text: $newPlayerUsername)
+                    Button {
+                        let error = plvm.addPlayer(newPlayerUsername)
+                        if error != "done"{
+                            //notification error
+                        }
+                    } label: {
+                        Text("Add new player")
+                    }
+                }
             }
         }
     }
