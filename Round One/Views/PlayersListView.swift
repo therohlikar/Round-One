@@ -31,10 +31,15 @@ struct PlayersListView: View {
                         .padding()
                 }else{
                     List{
-                        ForEach(plvm.players, id: \.self) { player in
-                            Text(player.name)
-                                .font(.system(size: 18, weight: .medium, design: .rounded))
-                                .padding(8)
+                        ForEach(plvm.players) { player in
+                            VStack(alignment: .leading) {
+                                Text(player.name)
+                                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                                Text(player.getId())
+                                    .font(.caption)
+                            }
+                            .padding(8)
+                            
                         }
                         .onDelete(perform: deletePlayer)
                     }
