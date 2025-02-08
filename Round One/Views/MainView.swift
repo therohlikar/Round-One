@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    @EnvironmentObject var toasts: ToastNotificationViewModel
     @State private var path = NavigationPath()
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
@@ -16,10 +16,9 @@ struct MainView: View {
         NavigationStack(path: $path) {
             ZStack {
                 Color(.systemBackground)
-                
                 VStack(alignment: .center) {
                     Button {
-                        //
+                        toasts.showToast(ToastNotificationModel(title: "Whatsup", description: "Never", flag: .important))
                     } label: {
                         Text("PLAY.")
                     }
