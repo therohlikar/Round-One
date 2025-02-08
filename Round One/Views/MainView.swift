@@ -48,9 +48,9 @@ struct MainView: View {
                 }
                 .padding(40)
             }
-            .overlay(alignment: .topTrailing) {
-                UserButtonView(currentUser: CurrentUser())
-            }
+//            .overlay(alignment: .topTrailing) {
+//                UserButtonView(currentUser: CurrentUser())
+//            }
             .navigationDestination(for: String.self) { dest in
                 if dest == "playerslist" {
                     PlayersListView()
