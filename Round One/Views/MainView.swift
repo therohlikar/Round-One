@@ -26,24 +26,32 @@ struct MainView: View {
                     .foregroundStyle(.blue)
                     
                     HStack {
-                        Button {
-                            path.append("playerslist")
-                        } label: {
-                            Text("PLAYERS")
-                        }
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
-                        
-                        Text("-")
+                        VStack(alignment: .leading) {
+                            Button {
+                                path.append("playerslist")
+                            } label: {
+                                Text("PLAYERLIST.")
+                            }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
-                        
-                        Button {
-                            path.append("settings")
-                        } label: {
-                            Text("SETTINGS")
+                            
+                            Button {
+                                path.append("settings")
+                            } label: {
+                                Text("SETTINGS.")
+                            }
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                            
+                            Button {
+                                path.append("history")
+                            } label: {
+                                Text("HISTORY.")
+                            }
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                         }
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        
+                        Spacer()
                     }
-                    
+                    .padding(.leading, 30)
                 }
                 .padding(40)
             }
@@ -56,11 +64,12 @@ struct MainView: View {
                 } else if dest == "settings" {
                     SettingsView()
                 } else if dest == "combatprepare" {
-                    CombatDeskView(playerData: [
-                        CombatPlayerModel(player: PlayerModel(name: "Player 1")),
-                        CombatPlayerModel(player: PlayerModel(name: "Player 2")),
-                        CombatPlayerModel(player: PlayerModel(name: "Player 3"))
-                    ])
+                    CombatPrepareView()
+//                    CombatDeskView(playerData: [
+//                        CombatPlayerModel(player: PlayerModel(name: "Player 1")),
+//                        CombatPlayerModel(player: PlayerModel(name: "Player 2")),
+//                        CombatPlayerModel(player: PlayerModel(name: "Player 3"))
+//                    ])
                 }
             }
         }
