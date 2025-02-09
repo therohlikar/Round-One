@@ -24,9 +24,9 @@ struct CombatModel: Encodable, Decodable {
     
     mutating func updateGameOptionsBasedOnStyle() {
         if self.gameStyle == .standard {
-            self.gameOptions = GameOptionsModel(maxPlayers: 2, baseHealth: 20, damageThreshold: 0, commanderDamageThreshold: 0)
+            self.gameOptions = GameOptionsModel(name: "standard", maxPlayers: 2, baseHealth: 20, damageThreshold: 0, commanderDamageThreshold: 0)
         } else if self.gameStyle == .commander {
-            self.gameOptions = GameOptionsModel(maxPlayers: 8, baseHealth: 40, damageThreshold: 0, commanderDamageThreshold: 21)
+            self.gameOptions = GameOptionsModel(name: "commander", maxPlayers: 8, baseHealth: 40, damageThreshold: 0, commanderDamageThreshold: 21)
         }
     }
 }
