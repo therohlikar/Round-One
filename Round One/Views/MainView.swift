@@ -47,6 +47,13 @@ struct MainView: View {
                                 Text("HISTORY.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
+                            
+                            Button {
+                                path.append("gameoptionseditor")
+                            } label: {
+                                Text("GAMEOPTIONSEDITOR.")
+                            }
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                         }
                         
                         Spacer()
@@ -70,6 +77,8 @@ struct MainView: View {
 //                        CombatPlayerModel(player: PlayerModel(name: "Player 2")),
 //                        CombatPlayerModel(player: PlayerModel(name: "Player 3"))
 //                    ])
+                }else if dest == "gameoptionseditor" {
+                    CustomGameOptionsEditorView()
                 }
             }
         }
