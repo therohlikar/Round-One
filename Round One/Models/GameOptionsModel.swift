@@ -8,12 +8,14 @@
 import Foundation
 
 struct GameOptionsModel: Encodable, Decodable {
+    var name: String = "standard"
     var maxPlayers: Int = 2
     var baseHealth: Int = 20
     var damageThreshold: Int = 0
     var commanderDamageThreshold: Int = 0
     
-    init(maxPlayers: Int = 2, baseHealth: Int = 20, damageThreshold: Int = 0, commanderDamageThreshold: Int = 0) {
+    init(name: String = "standard", maxPlayers: Int = 2, baseHealth: Int = 20, damageThreshold: Int = 0, commanderDamageThreshold: Int = 0) {
+        self.name = name
         self.maxPlayers = maxPlayers
         self.baseHealth = baseHealth
         self.damageThreshold = damageThreshold
