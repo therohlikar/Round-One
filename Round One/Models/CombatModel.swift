@@ -29,4 +29,8 @@ struct CombatModel: Encodable, Decodable {
             self.gameOptions = GameOptionsModel(name: "commander", maxPlayers: 8, baseHealth: 40, damageThreshold: 0, commanderDamageThreshold: 21)
         }
     }
+    
+    mutating func updateStyle(_ style: GameModeStyleEnum) {
+        self.gameStyle = style
+    }
 }
