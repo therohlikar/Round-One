@@ -12,12 +12,14 @@ import SwiftData
 struct Round_OneApp: App {
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     @StateObject var toastNotifications: ToastNotificationViewModel = .init()
+    @StateObject var pathController: PathController = .init()
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .preferredColorScheme(storedColorScheme == "dark" ? .dark : .light)
                 .environmentObject(toastNotifications)
+                .environmentObject(pathController)
                 .overlay(alignment: .bottom){
                     Spacer()
                     
