@@ -9,16 +9,17 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var toasts: ToastNotificationViewModel
-    @State private var path = NavigationPath()
+    @EnvironmentObject var path: PathController
+    
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $path.path) {
             ZStack {
                 Color(.systemBackground)
                 VStack(alignment: .center) {
                     Button {
-                        path.append("combatprepare")
+                        path.path.append("combatprepare")
                     } label: {
                         Text("PLAY.")
                     }
@@ -28,28 +29,28 @@ struct MainView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Button {
-                                path.append("playerslist")
+                                path.path.append("playerslist")
                             } label: {
                                 Text("PLAYERLIST.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.append("settings")
+                                path.path.append("settings")
                             } label: {
                                 Text("SETTINGS.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.append("history")
+                                path.path.append("history")
                             } label: {
                                 Text("HISTORY.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.append("gameoptionseditor")
+                                path.path.append("gameoptionseditor")
                             } label: {
                                 Text("GAMEOPTIONSEDITOR.")
                             }
