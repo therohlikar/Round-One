@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CustomGameOptionsEditorView: View {
+    @Binding var gameOptions: CustomGameOptionsViewModel
+    @EnvironmentObject var pc: PathController
+    
     var body: some View {
         ZStack {
             Color(.systemBackground)
@@ -17,12 +20,34 @@ struct CustomGameOptionsEditorView: View {
                     .padding()
                     .foregroundStyle(.blue)
                 
+                if gameOptions.storedGameOptions.isEmpty {
+                    Text("No custom games options defined yet.")
+                        .font(.system(size: 24, weight: .medium, design: .rounded))
+                        .padding()
+                } else {
+                    ScrollView{
+                        ForEach(gameOptions.storedGameOptions) { option in
+                            VStack(alignment: .leading) {
+                                Text(option.name)
+                                    .font(.system(size: 18, weight: .medium, design: .rounded))
+                            }
+                            .padding(8)
+                        }
+                    }
+                }
+                
                 Spacer()
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    pc.path.append("newgameoption")
+                } label: {
+                    Text("+")
+                        .font(.title)
+                }
+            }
+        }
     }
-}
-
-#Preview {
-    CustomGameOptionsEditorView()
 }

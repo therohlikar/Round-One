@@ -9,17 +9,18 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var toasts: ToastNotificationViewModel
-    @EnvironmentObject var path: PathController
+    @EnvironmentObject var pc: PathController
+    @State private var gameOptions: CustomGameOptionsViewModel = .init()
     
     @AppStorage("colorScheme") private var storedColorScheme: String = "dark"
     
     var body: some View {
-        NavigationStack(path: $path.path) {
+        NavigationStack(path: $pc.path) {
             ZStack {
                 Color(.systemBackground)
                 VStack(alignment: .center) {
                     Button {
-                        path.path.append("combatprepare")
+                        pc.path.append("combatprepare")
                     } label: {
                         Text("PLAY.")
                     }
@@ -29,28 +30,28 @@ struct MainView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Button {
-                                path.path.append("playerslist")
+                                pc.path.append("playerslist")
                             } label: {
                                 Text("PLAYERLIST.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.path.append("settings")
+                                pc.path.append("settings")
                             } label: {
                                 Text("SETTINGS.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.path.append("history")
+                                pc.path.append("history")
                             } label: {
                                 Text("HISTORY.")
                             }
                             .font(.system(size: 24, weight: .bold, design: .rounded))
                             
                             Button {
-                                path.path.append("gameoptionseditor")
+                                pc.path.append("gameoptionseditor")
                             } label: {
                                 Text("GAMEOPTIONSEDITOR.")
                             }
@@ -79,7 +80,9 @@ struct MainView: View {
 //                        CombatPlayerModel(player: PlayerModel(name: "Player 3"))
 //                    ])
                 }else if dest == "gameoptionseditor" {
-                    CustomGameOptionsEditorView()
+                    CustomGameOptionsEditorView(gameOptions: $gameOptions)
+                }else if dest == "newgameoption" {
+                    AddCustomGameOptionView(gameOptions: $gameOptions)
                 }
             }
         }
