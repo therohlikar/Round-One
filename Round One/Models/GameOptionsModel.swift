@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct GameOptionsModel: Encodable, Decodable {
+struct GameOptionsModel: Encodable, Decodable, Identifiable {
+    var id: String = UUID().uuidString
     var name: String = "standard"
     var maxPlayers: Int = 2
     var baseHealth: Int = 20
